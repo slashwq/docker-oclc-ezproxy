@@ -24,5 +24,5 @@ ENV EZPROXY_WSKEY=
 VOLUME /usr/local/ezproxy/config
 EXPOSE 2048
 
-COPY docker-entrypoint.sh /usr/local/ezproxy
-ENTRYPOINT ["/usr/local/ezproxy/docker-entrypoint.sh"]
+COPY docker-run.sh /usr/local/ezproxy
+RUN ["/usr/local/ezproxy/docker-run.sh"]
