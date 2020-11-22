@@ -26,7 +26,7 @@ docker run -h HOSTNAME.TLD -v PATH_TO_EZPROXY_CONFIG_FOLDER:/usr/local/ezproxy/c
 ### Docker Compose
 
 ```yaml
-version: 3
+version: "3"
 
 services:
   ezproxy:
