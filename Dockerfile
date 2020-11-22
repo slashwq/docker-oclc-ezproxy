@@ -8,19 +8,17 @@ COPY docker-run.sh /
 RUN \
   chmod +x /docker-run.sh && \
   apt-get update && \
-  apt-get upgrade -y && \
-  apt-get install -y \
+  apt-get -y install --no-install-recommends \
     wget && \
-  rm -rf /var/lib/apt/lists/* && \
   mkdir /usr/local/ezproxy && \
   mkdir /usr/local/ezproxy/config && \
-  wget -O /usr/local/ezproxy/ezproxy https://help.oclc.org/@api/deki/files/9850/ezproxy-linux.bin && \
+  wget --no-check-certificate -O /usr/local/ezproxy/ezproxy https://help.oclc.org/@api/deki/files/9850/ezproxy-linux.bin && \
   chmod +x /usr/local/ezproxy/ezproxy && \
-  /usr/local/ezproxy/ezproxy -d /usr/local/ezproxy/config -m; exit 0 && \
   apt-get purge -y \
     wget && \
   apt-get clean && \
-  apt-get autoremove -y
+  apt-get autoremove -y && \
+  rm -rf /var/lib/apt/lists/*
 
 ENV EZPROXY_WSKEY=
 
